@@ -109,7 +109,8 @@ els, exw, _ = pf.text(tx + 20, ty + 178, "$ export star.gif --mp4  OK", 2, GREEN
 s.add(f'<g class="ex">{els}</g>')
 s.add(f'<rect class="bl" x="{tx+20+exw+8}" y="{ty+179}" width="9" height="11" fill="{GREEN}"/>')
 
-# CRT scanline clipped to terminal screen
+# CRT scanline clipped to terminal screen (hidden when animations are off)
+s.style("@media (prefers-reduced-motion: reduce){.scn{opacity:0!important}}")
 s.defs(f'<clipPath id="tscr"><rect x="{tx+4}" y="{ty+4}" width="{tw_-8}" height="{th-8}"/></clipPath>')
 s.add(f'<g clip-path="url(#tscr)">'
       f'<rect class="scn" x="{tx+4}" y="0" width="{tw_-8}" height="20" fill="#FFFFFF" opacity="0.05"/></g>')

@@ -77,12 +77,13 @@ s.style(".mt{animation:mtk 9s linear infinite}"
         "@keyframes mtk{0%,78%{opacity:0;transform:translate(0,0)}"
         "80%{opacity:.9}90%{opacity:.9;transform:translate(240px,86px)}"
         "92%,100%{opacity:0;transform:translate(264px,94px)}}")
-s.add('<g class="mt"><rect x="1020" y="52" width="26" height="3" fill="#FFC0D9"/>'
+s.add('<g class="mt" opacity="0"><rect x="1020" y="52" width="26" height="3" fill="#FFC0D9"/>'
       f'<rect x="1046" y="55" width="4" height="4" fill="{PINK}"/></g>')
 
 s.add("</g>")  # end pon
 
-# ---- CRT scanline band on top ----
+# ---- CRT scanline band on top (hidden entirely when animations are off) ----
+s.style("@media (prefers-reduced-motion: reduce){.scn{opacity:0!important}}")
 s.add(f'<rect class="scn" x="10" y="0" width="{W-20}" height="24" fill="#FFFFFF" opacity="0.05"/>')
 
 n = s.save(pathlib.Path(__file__).parent.parent / "assets" / "header.svg")
