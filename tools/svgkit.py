@@ -12,14 +12,14 @@ class SVG:
     def __init__(self, w, h, title):
         self.w, self.h, self.title = w, h, title
         self.styles = []   # css rules/keyframes
-        self.defs = []     # gradients/clipPaths
+        self._defs = []    # gradients/clipPaths
         self.body = []     # drawable elements
 
     def style(self, css):
         self.styles.append(css)
 
     def defs(self, markup):
-        self.defs.append(markup)
+        self._defs.append(markup)
 
     def add(self, markup):
         self.body.append(markup)
@@ -69,7 +69,7 @@ class SVG:
 
     def render(self):
         css = "\n".join(self.styles) + "\n" + MOTION_RESET
-        defs = "".join(self.defs)
+        defs = "".join(self._defs)
         body = "".join(self.body)
         return (
             f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {self.w} {self.h}" '

@@ -1,4 +1,4 @@
-<img src="assets/header.svg" alt="ZJ · 像素游戏机风格主页头图" width="100%">
+<img src="assets/header.svg?v=2" alt="ZJ · 像素游戏机风格主页头图" width="100%">
 
 **程序员，AI Agent 开发者。把真正跑得通的方法做成开源项目，让每个想法都能落地。**
 **Programmer and AI-agent builder. I turn the methods that actually work into open-source projects, so ideas can ship.**
@@ -12,11 +12,11 @@
 
 ---
 
-<img src="assets/divider-rpd.svg" alt="" width="100%">
+<img src="assets/divider-rpd.svg?v=2" alt="" width="100%">
 
 ## 🕹️ RPD-Skill
 
-<img src="assets/card-rpd.svg" alt="RPD-Skill 项目卡" width="100%">
+<img src="assets/card-rpd.svg?v=2" alt="RPD-Skill 项目卡" width="100%">
 
 **三个入口覆盖项目全生命周期，让 vibecoding 项目真正落地。**
 **Three entry points cover the whole project lifecycle, so vibecoding projects actually ship.**
@@ -28,11 +28,11 @@
 
 ---
 
-<img src="assets/divider-lexinote.svg" alt="" width="100%">
+<img src="assets/divider-lexinote.svg?v=2" alt="" width="100%">
 
 ## 📝 LexiNote
 
-<img src="assets/card-lexinote.svg" alt="LexiNote 项目卡" width="100%">
+<img src="assets/card-lexinote.svg?v=2" alt="LexiNote 项目卡" width="100%">
 
 **面向 HarmonyOS 的本地 Markdown 笔记与知识整理应用——数据全程留在设备上。**
 **A local-first Markdown notes app for HarmonyOS — your data never leaves the device.**
@@ -44,11 +44,11 @@
 
 ---
 
-<img src="assets/divider-termify.svg" alt="" width="100%">
+<img src="assets/divider-termify.svg?v=2" alt="" width="100%">
 
 ## 🖥️ Termify
 
-<img src="assets/card-termify.svg" alt="Termify 项目卡" width="100%">
+<img src="assets/card-termify.svg?v=2" alt="Termify 项目卡" width="100%">
 
 **把一切带进终端的 ASCII art 生成器——本主页的像素元素也由它生成。**
 **An ASCII art generator that brings everything to the terminal — the pixel art on this profile is generated with it.**
