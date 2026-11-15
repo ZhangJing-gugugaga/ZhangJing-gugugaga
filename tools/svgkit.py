@@ -67,6 +67,115 @@ class SVG:
             f"@keyframes br{{0%,100%{{opacity:{hi}}}50%{{opacity:{lo}}}}}"
         )
 
+    # ---- M2: richer motion primitives (variety beyond blink) ----
+    # "fails visible" contract: every animated property has a natural attribute
+    # state that is correct when animations are off (reduced-motion / old renderers).
+
+    def use_frameswap(self, dur="0.6s", delay="0s"):
+        """Two stacked groups .fa (natural visible) / .fb (set opacity="0" attr!)
+        alternate every dur/2. With animations off: fa shows, fb hidden."""
+        self.style(
+            f".fa{{animation:fsa {dur} steps(1,end) infinite;animation-delay:{delay}}}"
+            f".fb{{animation:fsb {dur} steps(1,end) infinite;animation-delay:{delay}}}"
+            "@keyframes fsa{0%,49%{opacity:1}50%,100%{opacity:0}}"
+            "@keyframes fsb{0%,49%{opacity:0}50%,100%{opacity:1}}"
+        )
+
+    def use_patrol(self, dist, dur="7s", delay="0s"):
+        """March right, flip, march back. scaleX passes through 0 = turn squash."""
+        self.style(
+            f".pt{{animation:pt {dur} ease-in-out {delay} infinite}}"
+            f"@keyframes pt{{0%,6%{{transform:translateX(0) scaleX(1)}}"
+            f"44%,50%{{transform:translateX({dist}px) scaleX(1)}}"
+            f"56%,94%{{transform:translateX(0) scaleX(-1)}}"
+            f"100%{{transform:translateX(0) scaleX(1)}}}}"
+        )
+
+    def use_float(self, dur="3s", dy=4, delay="0s"):
+        self.style(
+            f".flt{{animation:flt {dur} ease-in-out {delay} infinite alternate}}"
+            f"@keyframes flt{{from{{transform:translateY(0)}}to{{transform:translateY({dy}px)}}}}"
+        )
+
+    def use_scanline(self, travel, dur="8s"):
+        """CRT refresh band. Caller draws the band rect with class .scn at y=0."""
+        self.style(
+            f".scn{{animation:scn {dur} linear infinite}}"
+            f"@keyframes scn{{from{{transform:translateY(-40px)}}to{{transform:translateY({travel}px)}}}}"
+        )
+
+    def use_poweron(self, dur="0.7s"):
+        """One-shot CRT flicker-on for a content group."""
+        self.style(
+            f".pon{{animation:pon {dur} steps(6,end) both}}"
+            "@keyframes pon{0%{opacity:0}38%{opacity:1}52%{opacity:.15}"
+            "66%{opacity:1}80%{opacity:.4}100%{opacity:1}}"
+        )
+
+    def use_fillbar(self, w, dur="3.2s", delay="0s"):
+        """Progress bar fill (bar rect width attr = w; chunky steps fill, hold, snap)."""
+        self.style(
+            f".flb{{animation:flb {dur} steps(14,end) {delay} infinite}}"
+            f"@keyframes flb{{0%{{width:0}}62%,94%{{width:{w}px}}99.9%{{width:{w}px}}}}"
+        )
+
+    def use_cursor_cycle(self, xs, period="6.6s", delay="0s"):
+        """Cursor jumps through x positions (plateau keyframes = discrete hops).
+        Last stop extends to 99.9% so the loop wraps as a jump, not a slide."""
+        stops = []
+        n = len(xs)
+        for i, x in enumerate(xs):
+            a = i / n * 100
+            b = 99.9 if i == n - 1 else ((i + 1) / n * 100) - (100 / n * 0.1)
+            stops.append(f"{a:.1f}%,{b:.2f}%{{transform:translateX({x}px)}}")
+        self.style(
+            f".cyc{{animation:cyc {period} steps(1,end) infinite;animation-delay:{delay}}}"
+            f"@keyframes cyc{{{','.join(stops)}}}"
+        )
+
+    def phase_visibility(self, cls, period, i, n, delay="0s"):
+        """Element of a cycle: visible only during phase i of n (plateau).
+        Shape: [0,a)=off, [a,b)=on, [b,100]=off — steps() holds each plateau.
+        Last phase runs to 99.9%; phase 0 starts at 0.4% to avoid a duplicate
+        0% keyframe edge case."""
+        a = max(i / n * 100, 0.4 if i == 0 else 0)
+        b = 99.9 if i == n - 1 else ((i + 1) / n * 100) - (100 / n * 0.1)
+        self.style(
+            f".{cls}{{animation:{cls}k {period} steps(1,end) infinite;animation-delay:{delay}}}"
+            f"@keyframes {cls}k{{0%{{opacity:0}}{a:.2f}%{{opacity:1}}"
+            f"{b:.2f}%{{opacity:0}}100%{{opacity:0}}}}"
+        )
+
+    _dw = 0
+
+    def draw_line(self, x1, y1, x2, y2, color, width=2, delay="0s", dur="0.5s"):
+        """Self-drawing line (stroke-dashoffset). Fails visible: attr offset=0."""
+        import math
+        ln = math.hypot(x2 - x1, y2 - y1)
+        c = f"dw{self._dw}"
+        self._dw += 1
+        self.style(
+            f".{c}{{animation:dwk {dur} ease-out {delay} both}}"
+            f"@keyframes dwk{{from{{stroke-dashoffset:{ln:.0f}}}}}"
+        )
+        self.add(
+            f'<line class="{c}" x1="{x1}" y1="{y1}" x2="{x2}" y2="{y2}" '
+            f'stroke="{color}" stroke-width="{width}" stroke-dasharray="{ln:.0f}"/>'
+        )
+
+    def use_glitch(self, amp=2, dur="0.5s"):
+        """Center-motif jitter: rapid ±amp steps on x."""
+        self.style(
+            f".gl{{animation:gl {dur} steps(2,end) infinite}}"
+            f"@keyframes gl{{0%,49%{{transform:translateX(0)}}50%,100%{{transform:translateX({amp}px)}}}}"
+        )
+
+    def use_echo(self, dur="3.6s", delay="1.2s", opacity=".3"):
+        """Second sweep bar echoing the first at lower opacity (call use_sweep too)."""
+        self.style(
+            f".echo{{animation:sw {dur} cubic-bezier(.45,0,.25,1) infinite;animation-delay:{delay};opacity:{opacity}}}"
+        )
+
     def render(self):
         css = "\n".join(self.styles) + "\n" + MOTION_RESET
         defs = "".join(self._defs)
