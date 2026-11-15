@@ -47,8 +47,8 @@ edges = [(0, 1), (1, 2), (1, 3), (2, 4), (3, 4)]
 for k, (a, b) in enumerate(edges):
     (ax, ay), (bx, by) = nodes[a], nodes[b]
     ln = ((bx - ax) ** 2 + (by - ay) ** 2) ** 0.5
-    s.style(f".dw{k}{{animation:dwk .5s ease-out {0.9+0.12*k:.2f}s both}}"
-            f"@keyframes dwk{{from{{stroke-dashoffset:{ln:.0f}}}}}")
+    s.style(f".dw{k}{{animation:dw{k}k .5s ease-out {0.9+0.12*k:.2f}s both}}"
+            f"@keyframes dw{k}k{{from{{stroke-dashoffset:{ln:.0f}}}}}")
     phone.append(f'<line class="dw{k}" x1="{ax}" y1="{ay}" x2="{bx}" y2="{by}" '
                  f'stroke="{FAINT}" stroke-width="2" stroke-dasharray="{ln:.0f}"/>')
 for i, (nx, ny) in enumerate(nodes):

@@ -16,6 +16,7 @@ def base_line(accent):
     s = SVG(W, H, "章节分隔线")
     s.add(f'<rect x="60" y="20.5" width="{MID-70-20}" height="3" fill="{FAINT}"/>')
     s.add(f'<rect x="{MID+70+20}" y="20.5" width="{W-MID-70-40}" height="3" fill="{FAINT}"/>')
+    s.use_sweep()  # defines .sw class + @keyframes sw — sweep_bar only draws rects
     sweep_bar(s, 19, 6, W, accent, MID-70, MID+70)
     s.use_blink(); s.style(".bl2{animation-delay:.5s}")
     s.add(f'<rect class="bl" x="60" y="18" width="14" height="8" fill="{accent}"/>')

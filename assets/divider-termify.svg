@@ -1,4 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1300 44" width="1300" height="44" role="img" aria-labelledby="t"><title id="t">章节分隔线</title><style>.bl{animation:bl 1s steps(2,end) infinite;animation-delay:0s}@keyframes bl{0%,49%{opacity:1}50%,100%{opacity:.12}}
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1300 44" width="1300" height="44" role="img" aria-labelledby="t"><title id="t">章节分隔线</title><style>.sw{animation:sw 4.5s cubic-bezier(.45,0,.25,1) infinite;animation-delay:0s}@keyframes sw{0%{transform:translateX(0)}70%,100%{transform:translateX(1620px)}}
+.bl{animation:bl 1s steps(2,end) infinite;animation-delay:0s}@keyframes bl{0%,49%{opacity:1}50%,100%{opacity:.12}}
 .bl2{animation-delay:.5s}
 .comet{animation:cmt 2.8s steps(12,end) infinite}@keyframes cmt{from{transform:translateX(0)}to{transform:translateX(1300px)}}
 .gl{animation:gl 0.44s steps(2,end) infinite}@keyframes gl{0%,49%{transform:translateX(0)}50%,100%{transform:translateX(2px)}}

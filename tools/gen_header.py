@@ -27,10 +27,10 @@ cell = 8
 char_adv = cell * 6
 tw = len(title) * char_adv
 tx, ty = 60, 52
+s.style("@keyframes ap{from{opacity:0}to{opacity:1}}")  # shared reveal keyframes
 for i, ch in enumerate(title):
     els, _, _ = pf.text(tx + i * char_adv, ty, ch, cell, AMBER, shadow="#171F0B")
-    s.style(f".c{i}{{animation:ap .01s steps(1) {0.25*i:.2f}s both}}"
-            "@keyframes ap{from{opacity:0}to{opacity:1}}")
+    s.style(f".c{i}{{animation:ap .01s steps(1) {0.25*i:.2f}s both}}")
     s.add(f'<g class="c{i}">{els}</g>')
 s.add(f'<rect class="bl" x="{tx+tw+18}" y="{ty+8}" width="{cell*2}" height="{cell*7-8}" fill="{AMBER}"/>')
 
