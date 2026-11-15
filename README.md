@@ -50,8 +50,8 @@
 
 <img src="assets/card-termify.svg?v=2" alt="Termify 项目卡" width="100%">
 
-**把一切带进终端的 ASCII art 生成器——本主页的像素元素也由它生成。**
-**An ASCII art generator that brings everything to the terminal — the pixel art on this profile is generated with it.**
+**把一切带进终端的 ASCII art 生成器——本卡终端里的 ASCII 星就是它生成的。**
+**An ASCII art generator that brings everything to the terminal — the ASCII star in this card was made with it.**
 
 <p>
   <a href="https://github.com/ZhangJing-gugugaga/Termify#readme"><img alt="Read the README" src="https://img.shields.io/badge/%E2%96%B6_Read_the_README-111827?style=for-the-badge&logo=gnu-bash&logoColor=FF5FA2"></a>
