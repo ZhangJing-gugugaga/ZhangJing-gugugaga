@@ -60,5 +60,4 @@
 
 ---
 
-▚▞ **如果这些项目帮到了你，一颗 star 就是最大的鼓励。** ▞▚
-If any of these help you, a star means a lot. Thanks for stopping by.
+<img src="assets/footer.svg?v=2" alt="如果这些项目帮到了你，一颗 star 就是最大的鼓励。If any of these help you, a star means a lot. Thanks for stopping by." width="100%">
