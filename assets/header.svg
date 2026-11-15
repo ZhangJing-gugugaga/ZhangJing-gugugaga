@@ -5,7 +5,7 @@
 .tw{transform-box:fill-box;transform-origin:center;animation:tw 2.6s ease-in-out infinite;animation-delay:0s}@keyframes tw{0%,100%{transform:scale(1) rotate(0)}45%{transform:scale(.55) rotate(45deg);opacity:.55}60%{transform:scale(1.18) rotate(90deg)}}
 .t2{animation-delay:1.4s}
 .flt{animation:flt 2.8s ease-in-out 0s infinite alternate}@keyframes flt{from{transform:translateY(0)}to{transform:translateY(5px)}}
-.scn{animation:scn 7s linear infinite}@keyframes scn{from{transform:translateY(-40px)}to{transform:translateY(250px)}}
+.scn{animation:scn 7s linear 3.5s infinite both}@keyframes scn{from{transform:translateY(-40px)}to{transform:translateY(250px)}}
 .c0{animation:ap .01s steps(1) 0.00s both}@keyframes ap{from{opacity:0}to{opacity:1}}
 .c1{animation:ap .01s steps(1) 0.25s both}@keyframes ap{from{opacity:0}to{opacity:1}}
 .c2{animation:ap .01s steps(1) 0.50s both}@keyframes ap{from{opacity:0}to{opacity:1}}

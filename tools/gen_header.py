@@ -17,7 +17,7 @@ s.use_patrol(90, dur="7s")
 s.use_frameswap(dur="0.5s")
 s.use_twinkle(dur="2.6s", delay="0s"); s.style(".t2{animation-delay:1.4s}")
 s.use_float(dur="2.8s", dy=5, delay="0s")
-s.use_scanline(travel=250, dur="7s")
+s.use_scanline(travel=250, dur="7s", delay="3.5s")
 
 s.add('<g class="pon">')  # CRT flicker-on wraps everything
 

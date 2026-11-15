@@ -97,10 +97,12 @@ class SVG:
             f"@keyframes flt{{from{{transform:translateY(0)}}to{{transform:translateY({dy}px)}}}}"
         )
 
-    def use_scanline(self, travel, dur="8s"):
-        """CRT refresh band. Caller draws the band rect with class .scn at y=0."""
+    def use_scanline(self, travel, dur="8s", delay="0s"):
+        """CRT refresh band. Caller draws the band rect with class .scn at y=0.
+        Delay de-syncs from same-period loops; `both` holds the off-canvas
+        from-state during the delay (no stuck band at load)."""
         self.style(
-            f".scn{{animation:scn {dur} linear infinite}}"
+            f".scn{{animation:scn {dur} linear {delay} infinite both}}"
             f"@keyframes scn{{from{{transform:translateY(-40px)}}to{{transform:translateY({travel}px)}}}}"
         )
 
