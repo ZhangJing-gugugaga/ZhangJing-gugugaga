@@ -1,4 +1,4 @@
-"""header.svg v3 — motion matrix: power-on flicker (one-shot), boot typing,
+"""header-signal.svg — motion matrix: power-on flicker (one-shot), boot typing,
 cursor blink, invader patrol + 2-frame walk cycle, star variety (twinkle /
 float / meteor streak), CRT scanline. Layout unchanged (user loves it).
 """
@@ -86,5 +86,5 @@ s.add("</g>")  # end pon
 s.style("@media (prefers-reduced-motion: reduce){.scn{opacity:0!important}}")
 s.add(f'<rect class="scn" x="10" y="0" width="{W-20}" height="24" fill="#FFFFFF" opacity="0.05"/>')
 
-n = s.save(pathlib.Path(__file__).parent.parent / "assets" / "header.svg")
-print("header.svg", n, "bytes")
+n = s.save(pathlib.Path(__file__).parent.parent / "assets" / "header-signal.svg")
+print("header-signal.svg", n, "bytes")
