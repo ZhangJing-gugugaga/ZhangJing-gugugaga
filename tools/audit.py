@@ -25,20 +25,28 @@ KF_BASELINE = 40  # v3 shipped 45; alert if motion regresses below 40
 failures = []
 warns = []
 files = sorted(ASSETS.glob("*.svg"))
+gifs = sorted(ASSETS.glob("*.gif"))
 print(f"assets on disk: {len(files)}")
 
 readme = README.read_text(encoding="utf-8")
-refs = re.findall(r'assets/([a-z0-9-]+\.svg)\?v=(\d+)', readme)
+refs = re.findall(r'assets/([a-z0-9-]+\.(?:svg|gif))\?v=(\d+)', readme)
 versions = {v for _, v in refs}
 print(f"README refs: {len(refs)}  versions: {versions}")
 
 # G5
-disk = {f.name for f in files}
+disk = {f.name for f in files + gifs}
 refd = {r[0] for r in refs}
 if disk != refd:
     failures.append(f"G5 asset/ref mismatch: disk-only={disk-refd} ref-only={refd-disk}")
 if len(versions) != 1:
     failures.append(f"G5 mixed ?v versions: {versions}")
+
+for f in gifs:
+    content = f.read_bytes()
+    if content[:6] not in (b"GIF87a", b"GIF89a") or b"NETSCAPE2.0" not in content:
+        failures.append(f"GIF {f.name}: missing GIF header or animation loop")
+    if len(content) > 1024 * 1024:
+        failures.append(f"GIF {f.name}: exceeds 1MB")
 
 kf_total = 0
 for f in files:

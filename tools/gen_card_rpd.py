@@ -1,8 +1,9 @@
 """card-rpd v3 — layout: left text / right doors (kept). Motion: level-select
 cursor cycling across doors with synced door highlight, lifecycle progress bar
-filling in steps, 51★ breathe, staggered door rise.
+filling in steps, Agensi Skill label, staggered door rise.
 """
 import sys, pathlib
+sys.dont_write_bytecode = True
 sys.path.insert(0, str(pathlib.Path(__file__).parent))
 from palette import AMBER, TEXT, DIM, FAINT, PANEL2
 from svgkit import SVG, pixel_frame
@@ -26,11 +27,8 @@ txt(60, 112, "三个入口覆盖项目全生命周期，", 2, TEXT)
 txt(60, 140, "让 vibecoding 项目真正落地。", 2, TEXT)
 txt(60, 172, "THREE ENTRIES · FULL PROJECT LIFECYCLE", 2, DIM)
 
-els, sw, _ = pf.text(60, 222, "51", 6, AMBER, shadow="#241C06")
-s.add(f'<g class="br">{els}</g>')
-els, stw, _ = pf.text(60 + sw + 12, 222, "★", 6, AMBER, cjk_cells=10)
-s.add(f'<g class="br">{els}</g>')
-txt(60, 288, "GITHUB STARS AND COUNTING", 2, DIM)
+txt(60, 232, "Agensi Skill", 4, AMBER, shadow="#241C06")
+txt(60, 288, "PROJECT WORKFLOW", 2, DIM)
 
 # right: doors + cycling level-select cursor
 doors = [("01", 720), ("02", 905), ("03", 1090)]
