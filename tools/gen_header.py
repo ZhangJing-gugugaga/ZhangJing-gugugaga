@@ -3,6 +3,7 @@ cursor blink, invader patrol + 2-frame walk cycle, star variety (twinkle /
 float / meteor streak), CRT scanline. Layout unchanged (user loves it).
 """
 import sys, pathlib
+sys.dont_write_bytecode = True
 sys.path.insert(0, str(pathlib.Path(__file__).parent))
 from palette import AMBER, CYAN, PINK, TEXT, DIM, FAINT, GREEN
 from svgkit import SVG, pixel_frame, star
@@ -42,14 +43,13 @@ s.add(f'<g class="fade">{els}</g>')
 els, _, _ = pf.text(62, 166, "PROGRAMMER · AGENT BUILDER · OPEN SOURCE", 2, DIM)
 s.add(f'<g class="fade2">{els}</g>')
 
-# ---- hi-score ----
-hi_x = W - 60 - (pf.measure("HI-SCORE", 2)[0] + 12 + pf.measure("51", 2)[0] + 14)
-els, _, _ = pf.text(hi_x, 26, "HI-SCORE", 2, DIM)
-s.add(els)
-els, fw, _ = pf.text(hi_x, 44, "51", 2, AMBER)
-s.add(els)
-els, _, _ = pf.text(hi_x + fw + 4, 44, "★", 2, AMBER, cjk_cells=10)
-s.add(els)
+# ---- pixel signal scanner ----
+for i in range(8):
+    s.add(f'<rect x="{1115+i*15}" y="32" width="10" height="16" fill="{FAINT}"/>')
+s.style(".signal{animation:signalscan 3.6s steps(7,end) infinite alternate}"
+        "@keyframes signalscan{0%,10%{transform:translateX(0)}"
+        "90%,100%{transform:translateX(105px)}}")
+s.add(f'<rect class="signal" x="1115" y="32" width="10" height="16" fill="{AMBER}"/>')
 
 # ---- invader: patrols right field, 2-frame walk ----
 INV_A = [
