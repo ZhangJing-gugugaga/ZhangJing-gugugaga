@@ -48,31 +48,15 @@
 
 ## 🖥️ Termify
 
-<p align="center">
-  <a href="https://termify.moonzj.com"><img src="assets/termify-avatar-ascii.png" alt="使用 Termify 转换的猫咪头像 ASCII 字符画" width="400"></a>
-</p>
+<img src="assets/card-termify.svg?v=6" alt="Termify 项目卡" width="100%">
 
-**这是我的头像经过 Termify 转换后的效果。上传图片、GIF 或视频，生成字符画与终端动画。**<br>
-My avatar, converted with Termify. Turn images, GIFs and videos into ASCII art and terminal animations.
+**把一切带进终端的 ASCII art 生成器——本卡终端里的 ASCII 星就是它生成的。**
+**An ASCII art generator that brings everything to the terminal — the ASCII star in this card was made with it.**
 
 <p>
-  <a href="https://termify.moonzj.com"><img alt="在线体验 Termify" src="https://img.shields.io/badge/Try_Termify-在线体验-FF5FA2?style=for-the-badge"></a>
-  <a href="https://termify.moonzj.com/gallery"><img alt="Termify 作品画廊" src="https://img.shields.io/badge/Gallery-作品画廊-111827?style=for-the-badge"></a>
   <a href="https://github.com/ZhangJing-gugugaga/Termify#readme"><img alt="Read the README" src="https://img.shields.io/badge/%E2%96%B6_Read_the_README-111827?style=for-the-badge&logo=gnu-bash&logoColor=FF5FA2"></a>
   <a href="https://github.com/ZhangJing-gugugaga/Termify"><img alt="Termify on GitHub" src="https://img.shields.io/github/stars/ZhangJing-gugugaga/Termify?style=for-the-badge&logo=github&label=Termify&color=FF5FA2"></a>
 </p>
-
----
-
-## 开源贡献 / Open-source contributions
-
-我向开源项目提交过以下修复 PR，涉及 Agent 工具、Windows 兼容性与数据可靠性。<br>
-My submitted pull requests cover agent tooling, Windows compatibility and data reliability.
-
-| 项目 / Project | 我的 PR / My pull requests | 状态 / Status |
-| --- | --- | --- |
-| [TDD Guard](https://github.com/nizos/tdd-guard)<br>![TDD Guard stars](https://img.shields.io/github/stars/nizos/tdd-guard?style=flat&label=Stars) | [#197](https://github.com/nizos/tdd-guard/pull/197) 验证异常处理、模型配置兼容与 Windows 忽略路径匹配<br>Validation error handling, model configuration and Windows ignore-path matching | ![PR 197 status](https://img.shields.io/github/pulls/detail/state/nizos/tdd-guard/197?label=PR%20%23197) |
-| [MCP Servers](https://github.com/modelcontextprotocol/servers)<br>![MCP Servers stars](https://img.shields.io/github/stars/modelcontextprotocol/servers?style=flat&label=Stars) | [#4509](https://github.com/modelcontextprotocol/servers/pull/4509) Windows 路径大小写兼容<br>[#4510](https://github.com/modelcontextprotocol/servers/pull/4510) Memory 原子写入与损坏行处理<br>[#4511](https://github.com/modelcontextprotocol/servers/pull/4511) Fetch 渐进式 SSR 内容提取回退<br>Windows paths, memory persistence and SSR content extraction | 三个 PR 均已关闭、未合并<br>All three closed, unmerged<br>2026-11-16 |
 
 ---
 
