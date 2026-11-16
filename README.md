@@ -14,16 +14,6 @@
 
 ## 开源贡献 / Open-source contributions
 
-<a href="https://github.com/nizos/tdd-guard"><img src="assets/card-tdd-guard.svg?v=7" alt="TDD Guard 开源贡献，测试先行、最小实现与重构流程" width="100%"></a>
-
-**为 Claude Code 提供测试驱动开发约束，检查是否先写失败测试、是否只实现当前测试需要的代码，并结合 lint 规则辅助重构。**<br>
-TDD enforcement for Claude Code. Checks for failing tests before implementation, keeps changes within current test requirements, and integrates lint rules into refactoring.
-
-<p>
-  <a href="https://github.com/nizos/tdd-guard"><img alt="TDD Guard 上游仓库 Star 数" src="https://img.shields.io/github/stars/nizos/tdd-guard?style=for-the-badge&logo=github&label=Upstream_Stars&color=4ADE80"></a>
-  <a href="https://github.com/nizos/tdd-guard#readme"><img alt="了解 TDD Guard" src="https://img.shields.io/badge/TDD_Guard-了解项目-111827?style=for-the-badge&logo=github&logoColor=4ADE80"></a>
-</p>
-
 <a href="https://github.com/modelcontextprotocol/servers"><img src="assets/card-mcp-servers.svg?v=7" alt="MCP Servers 开源贡献，AI 客户端连接工具与数据" width="100%"></a>
 
 **MCP 参考服务器集合，为 AI 客户端提供文件操作、知识图谱持久记忆、网页内容提取等工具与数据访问能力。**<br>
@@ -32,6 +22,16 @@ Reference MCP servers that connect AI clients to tools and data, including files
 <p>
   <a href="https://github.com/modelcontextprotocol/servers"><img alt="MCP Servers 上游仓库 Star 数" src="https://img.shields.io/github/stars/modelcontextprotocol/servers?style=for-the-badge&logo=github&label=Upstream_Stars&color=6EE7FF"></a>
   <a href="https://github.com/modelcontextprotocol/servers#readme"><img alt="了解 MCP Servers" src="https://img.shields.io/badge/MCP_Servers-了解项目-111827?style=for-the-badge&logo=github&logoColor=6EE7FF"></a>
+</p>
+
+<a href="https://github.com/nizos/tdd-guard"><img src="assets/card-tdd-guard.svg?v=7" alt="TDD Guard 开源贡献，测试先行、最小实现与重构流程" width="100%"></a>
+
+**为 Claude Code 提供测试驱动开发约束，检查是否先写失败测试、是否只实现当前测试需要的代码，并结合 lint 规则辅助重构。**<br>
+TDD enforcement for Claude Code. Checks for failing tests before implementation, keeps changes within current test requirements, and integrates lint rules into refactoring.
+
+<p>
+  <a href="https://github.com/nizos/tdd-guard"><img alt="TDD Guard 上游仓库 Star 数" src="https://img.shields.io/github/stars/nizos/tdd-guard?style=for-the-badge&logo=github&label=Upstream_Stars&color=4ADE80"></a>
+  <a href="https://github.com/nizos/tdd-guard#readme"><img alt="了解 TDD Guard" src="https://img.shields.io/badge/TDD_Guard-了解项目-111827?style=for-the-badge&logo=github&logoColor=4ADE80"></a>
 </p>
 
 ---
